@@ -1,0 +1,70 @@
+{{ room | json}}
+<div class  = "alert alert-success">
+    {{successMessage}}
+</div>
+
+<form class="container mt-5" (ngSubmit)="AddRoom()">
+  <label for="roomType" class="form-label">Room Type</label>
+  <input
+    type="text"
+    id="roomType"
+    class="form-control"
+    name = "roomType"
+    placeholder="eg. double , single"
+    [(ngModel)] = "room.roomType"
+  />
+
+  <label for="roomAmenities" class="form-label">Room Amenities</label>
+  <input
+    type="text"
+    id="roomAmenities"
+    class="form-control"
+    placeholder="eg. shower, wifi"
+    name = "roomAmenities"
+    [(ngModel)] = "room.amenities"
+    
+  />
+
+  <label for="checkInTime" class="form-label">Check-In-Time</label>
+  <input
+    type="date"
+    id="checkInTime"
+    class="form-control"
+    name = "checkInTime" 
+    [(ngModel)] = "room.checkinTime"
+  />
+
+  <label for="roomPrice" class="form-label">Price</label>
+  <input
+    type="number"
+    id="roomPrice"
+    class="form-control"
+    placeholder="Enter room price"
+    name = "price"
+    [(ngModel)] = "room.price"
+    />
+
+
+  <label for="roomRating" class="form-label">Rating</label>
+  <input
+    type="number"
+    id="roomRating"
+    name = "rating"
+    class="form-control"
+    placeholder="Enter rating"
+    [(ngModel)] = "room.rating"
+  />
+
+  <button type = "submit"  class =  " mt-3 btn btn-primary">Submit</button>
+</form>
+
+
+<!-- export interface RoomList {
+    roomNumber: string;
+    roomType: string;
+    amenities: string;
+    price: number;
+    checkinTime: Date;
+    photos: string;
+    rating: number;
+} -->

@@ -9,15 +9,21 @@
     {{selectedRoom | json}}
 </div>
 
+<button  class = "btn btn-primary" (click) = "addRoom()">Add Room</button>
 
 <div [ngStyle]="{'color': rooms.availableRooms > 0 ? 'green' : 'red'}" *ngIf="rooms.availableRooms > 0">
     <p>rooms List</p>
     <p>{{rooms.availableRooms}}</p>
 
 </div>
-<div>
-    <hinv-rooms-list [rooms]='roomList' (selectedRoom)="selectRoom($event)"> </hinv-rooms-list>
+
+
+<div *ngIf="rooms$ | async as rooms">
+    <hinv-rooms-list [rooms]= "rooms"  (selectedRoom)="selectRoom($event)"> </hinv-rooms-list>
 </div>
 
 
 <button class="btn btn-primary" (click)="toggle()">Toggle</button>
+<button class="btn btn-primary" (click)="editRoom()">Edit Room</button>
+<button class="btn btn-primary" (click)="deletRoom()">Delete Room</button>
+<h1>{{totalBytes}} loaded</h1>

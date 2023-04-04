@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { RoomsComponent } from './rooms/rooms.component';
+import { InitService } from './init.service';
 
 @Component({
   selector: 'hinv-root',
@@ -15,10 +16,13 @@ export class AppComponent implements AfterViewInit , OnInit{
   role = 'admin';
   @ViewChild ('user', {read: ViewContainerRef}) vcr!: ViewContainerRef;
   @ViewChild('name', {static: true}) name!: ElementRef;
+  constructor(private initService: InitService) {
+  }
 
   ngOnInit() {
     const elementRef = this.name.nativeElement.innerText = 'hilton hotel';
-    
+    console.log(this.initService.config);
+
   }
   
 }
