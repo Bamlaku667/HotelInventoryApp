@@ -28,6 +28,10 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { RoomsBookingComponent } from './rooms-booking/rooms-booking.component';
 import { RoomsAddComponent } from './rooms-add/rooms-add.component';
 import { FormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { LoginComponent } from './login/login.component';
+import { HoverDirective } from './hover.directive';
+
 
 
 
@@ -47,7 +51,9 @@ export function initFactory(initService : InitService) {
     DashboardComponent,
     NotfoundComponent,
     RoomsBookingComponent,
-    RoomsAddComponent
+    RoomsAddComponent,
+    LoginComponent,
+    HoverDirective
   ],
   imports: [
     BrowserModule,
@@ -63,7 +69,9 @@ export function initFactory(initService : InitService) {
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot()
+    
     ],
   providers: [
     {

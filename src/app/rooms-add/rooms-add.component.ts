@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RoomList } from '../rooms/rooms';
 import { RoomsService } from '../rooms/services/rooms.service';
+import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'hinv-rooms-add',
@@ -18,11 +20,16 @@ export class RoomsAddComponent {
     rating: 0,
   };
 
-  constructor(private roomService: RoomsService) {}
+  constructor(private roomService: RoomsService, private toastrService: ToastrService) {}
 
-  AddRoom() {
+  AddRoom(roomsForm : NgForm) {
     this.roomService
       .addRoom(this.room)
-      .subscribe((data) => (this.successMessage = 'Room Added Successfully'));
+      .subscribe((data) => 
+      {
+        (this.toastrService.success  ('Room Added Successfully') )
+        roomsForm.reset();
+      });
+  
   }
 }

@@ -1,11 +1,19 @@
-{{ room | json}}
-<div class  = "alert alert-success">
+{{roomsForm.pristine}}
+ {{roomsForm.valid}}
+
+ {{roomsForm.invalid}}
+ {{roomsForm.value | json}}
+
+
+
+<div *ngIf = "successMessage !== ''" class  = "alert alert-success">
     {{successMessage}}
 </div>
 
-<form class="container mt-5" (ngSubmit)="AddRoom()">
+<form class="container mt-5" #roomsForm = "ngForm" (ngSubmit)="AddRoom(roomsForm)">
   <label for="roomType" class="form-label">Room Type</label>
   <input
+   required
     type="text"
     id="roomType"
     class="form-control"
@@ -16,6 +24,7 @@
 
   <label for="roomAmenities" class="form-label">Room Amenities</label>
   <input
+  required
     type="text"
     id="roomAmenities"
     class="form-control"
@@ -27,6 +36,7 @@
 
   <label for="checkInTime" class="form-label">Check-In-Time</label>
   <input
+  required
     type="date"
     id="checkInTime"
     class="form-control"
@@ -36,6 +46,7 @@
 
   <label for="roomPrice" class="form-label">Price</label>
   <input
+  required
     type="number"
     id="roomPrice"
     class="form-control"
@@ -47,6 +58,7 @@
 
   <label for="roomRating" class="form-label">Rating</label>
   <input
+  required
     type="number"
     id="roomRating"
     name = "rating"
@@ -55,7 +67,9 @@
     [(ngModel)] = "room.rating"
   />
 
-  <button type = "submit"  class =  " mt-3 btn btn-primary">Submit</button>
+  
+  <button [disabled]="roomsForm.invalid" type = "submit"  class =  " mt-3 btn btn-primary">Submit</button>
+  
 </form>
 
 
