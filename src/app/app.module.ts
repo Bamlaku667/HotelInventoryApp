@@ -27,7 +27,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './login/login.component';
 import { HoverDirective } from './hover.directive';
 import { EmailvalidatorDirective } from './emailvalidator/emailvalidator.directive';
-import { RoomsModule } from './rooms/rooms.module';
+// import { RoomsModule } from './rooms/rooms.module';
 import { HeaderModule } from './header/header.module';
 
 
@@ -51,7 +51,7 @@ export function initFactory(initService : InitService) {
   ],
   imports: [
     BrowserModule,
-    RoomsModule,
+    // RoomsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -67,7 +67,6 @@ export function initFactory(initService : InitService) {
     FormsModule,
     ToastrModule.forRoot(),
     HeaderModule
-    
     ],
   providers: [
     {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, map } from 'rxjs';
+import { ConfigService } from '../services/config.service';
 
 @Component({
   selector: 'hinv-rooms-booking',
@@ -10,10 +11,10 @@ import { Observable, map } from 'rxjs';
 export class RoomsBookingComponent implements OnInit {
 
   id$ = this.router.paramMap.pipe(map(params => params.get('id')) );
-  constructor(private router: ActivatedRoute) {}
+  constructor(private router: ActivatedRoute, private configService: ConfigService) {}
 
   ngOnInit(): void {
-    
+    console.log('booking');
   }
 
 }

@@ -9,8 +9,8 @@
     {{selectedRoom | json}}
 </div>
 
-<button  class = "btn btn-primary" (click) = "addRoom()">Add Room</button>
-
+<button  class = "btn btn-primary" routerLink="addroom">Add Room</button>
+<router-outlet></router-outlet>
 <div [ngStyle]="{'color': rooms.availableRooms > 0 ? 'green' : 'red'}" *ngIf="rooms.availableRooms > 0">
     <p>rooms List</p>
     <p>{{rooms.availableRooms}}</p>

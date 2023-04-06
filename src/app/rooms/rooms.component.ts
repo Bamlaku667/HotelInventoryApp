@@ -6,6 +6,7 @@ import { Room, RoomList } from './rooms'
 import { RoomsService } from './services/rooms.service';
 import { interval } from 'rxjs';
 import { catchError, shareReplay } from 'rxjs/operators';
+import { ConfigService } from '../services/config.service';
 
 @Component({
   selector: 'hinv-rooms',
@@ -87,7 +88,7 @@ export class RoomsComponent implements OnInit, AfterViewInit, AfterViewChecked {
       // })
   }
 
-  constructor (private roomService: RoomsService) {
+  constructor (private roomService: RoomsService, private configService: ConfigService) {   
 
   }
 
