@@ -1,1 +1,72 @@
-<p>booking works!</p>
+{{ bookingForm.value | json }}
+
+<form [formGroup]="bookingForm" class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Room Id</mat-label>
+    <input
+      type="number"
+      matInput
+      placeholder="Room Id"
+      formControlName="roomId"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Guest Name</mat-label>
+    <input
+      type="text"
+      matInput
+      placeholder="Guest name"
+      formControlName="guestName"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Guest Email</mat-label>
+    <input
+      type="email"
+      matInput
+      placeholder="Provide an Email"
+      formControlName="guestEmail"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Mobile Number</mat-label>
+    <input
+      type="text"
+      matInput
+      placeholder="mobile number"
+      formControlName="mobileNumber"
+    />
+  </mat-form-field>
+
+  <mat-form-field class = "example-full-width">
+    <mat-label>Check In Date</mat-label>
+    <input matInput [matDatepicker]="checkOutPicker" formControlName = "checkinDate" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="checkOutPicker"></mat-datepicker-toggle>
+    <mat-datepicker #checkOutPicker></mat-datepicker>
+  </mat-form-field>
+ 
+
+ 
+
+  <mat-form-field class = "example-full-width">
+    <mat-label>Check Out Date</mat-label>
+    <input matInput [matDatepicker]="checkInPicker" formControlName = "checkoutDate" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="checkInPicker"></mat-datepicker-toggle>
+    <mat-datepicker #checkInPicker></mat-datepicker>
+  </mat-form-field>
+
+
+
+  <mat-form-field class = "example-full-width">
+    <mat-label>Booking Date</mat-label>
+    <input matInput [matDatepicker]="bookingPicker" formControlName = "bookingDate" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="bookingPicker"></mat-datepicker-toggle>
+    <mat-datepicker #bookingPicker></mat-datepicker>
+  </mat-form-field>
+</form>
